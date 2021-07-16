@@ -1,6 +1,6 @@
 import javax.swing.*;
 
-public class Frame extends JFrame{
+public class Frame extends JFrame {
     public JFrame frame;
 
     public Frame() {
