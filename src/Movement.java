@@ -11,11 +11,9 @@ public class Movement implements Runnable {
     public void run() {
         while (true) {
             try {
-                double x = System.currentTimeMillis();
-                double y = System.currentTimeMillis();
-                int diff = (int) (y - x);
-                TimeUnit.MILLISECONDS.sleep(10000 - (diff));
-            } catch (Exception e) {
+                logo.move();
+                TimeUnit.MILLISECONDS.sleep(30);
+            } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }
