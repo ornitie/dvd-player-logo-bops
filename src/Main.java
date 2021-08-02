@@ -1,25 +1,20 @@
-import java.awt.*;
-import java.util.concurrent.TimeUnit;
-
 public class Main {
-    public static void main(String[] args) {
-        Frame frame = new Frame();
+    public static void start(Screen s) {
         Logo label = new Logo();
         Movement m = new Movement(label);
-        frame.frame.add(label);
-        frame.frame.getContentPane().setBackground(Color.BLACK);
-        frame.frame.repaint();
-        frame.frame.setLayout(null);
+        s.add(label);
         label.setLocation(0, 0);
+        label.move();
+    }
+
+    public static void main(String[] args) {
+        Frame frame = new Frame();
+        Screen s = new Screen();
+
+        s.repaint();
+        frame.frame.add(s);
+        s.setLayout(null);
         frame.frame.repaint();
-        m.run();
-//        for (int i = 0; i < 200; i++) {
-//            try {
-//                label.setLocation(i, i);
-//                TimeUnit.MILLISECONDS.sleep(17);
-//            } catch (Exception e) {
-//
-//            }
-//        }
+        start(s);
     }
 }
