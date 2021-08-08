@@ -1,11 +1,16 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class Buttons extends JPanel {
+public class Buttons extends JPanel implements ActionListener {
     public JButton newLogo;
+    private Screen parent;
 
-    public Buttons() {
+    public Buttons(Screen s) {
+        parent = s;
         newLogo = new JButton("New Logo");
+        newLogo.addActionListener(this);
         this.setSize(1200, 20);
         this.setLayout(new GridLayout(1, 3));
         this.add(new JLabel());
@@ -16,4 +21,12 @@ public class Buttons extends JPanel {
         this.repaint();
     }
 
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        Logo l = new Logo();
+        parent.add(l);
+        l.setLocation(0, 0);
+        Movement m = new Movement(l);
+        m.run();
+    }
 }

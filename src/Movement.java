@@ -1,23 +1,12 @@
-import java.util.concurrent.TimeUnit;
-
 public class Movement implements Runnable {
-    private Logo logo;
+    private Logo l;
 
-    public Movement(Logo logo) {
-        this.logo = logo;
+    public Movement(Logo l) {
+        this.l = l;
     }
 
     @Override
     public void run() {
-        while (true) {
-            try {
-                double x = System.currentTimeMillis();
-                double y = System.currentTimeMillis();
-                int diff = (int) (y - x);
-                TimeUnit.MILLISECONDS.sleep(10000 - (diff));
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
+        l.move();
     }
 }
