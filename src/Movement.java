@@ -7,6 +7,13 @@ public class Movement implements Runnable {
 
     @Override
     public void run() {
-        l.move();
+        while (true) {
+            try {
+                logo.move();
+                TimeUnit.MILLISECONDS.sleep(30);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }
