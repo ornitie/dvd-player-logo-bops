@@ -1,10 +1,8 @@
-import java.util.concurrent.TimeUnit;
-
 public class Movement implements Runnable {
-    private Logo logo;
+    private Logo l;
 
-    public Movement(Logo logo) {
-        this.logo = logo;
+    public Movement(Logo l) {
+        this.l = l;
     }
 
     @Override
